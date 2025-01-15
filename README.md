@@ -35,3 +35,11 @@ go build -o demo main.go
 2. Assembled
 3. Linked
 4. Binary is created
+
+## Keywords 
+
+const, case, default, if ,else, switch, var,import, package (9 out of 25)
+
+## builtin
+
+print, println, complex (3 out of  18)
