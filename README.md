@@ -43,3 +43,40 @@ const, case, default, if ,else, switch, var,import, package (9 out of 25)
 ## builtin
 
 print, println, complex (3 out of  18)
+
+
+## go env 
+
+1. GOROOT  -> The actual installation of Go
+2. GOPATH  -> All third party or user defined libraries reside
+3. GOBIN   -> All binaries installed using go install stored in this directory 
+4. GOOS    -> Go OS 
+5. GOARCH  -> Go Architecture
+
+- all cross compilation os/archs
+
+```bash
+go tool dist list
+```
+
+- To cross compilation and build 
+
+```bash
+GOOS=windows GOARCH=amd64 go build -o buil
+d/switch-case-demo-win-amd64.exe main.go
+
+GOOS=linux GOARCH=amd64 
+go build -o build/switch-case-demo-linux-amd64 main.go
+```
+
+- release build 
+
+```bash
+GOOS=windows GOARCH=amd64 go build -ldflags="-w -s"  -o build/switch-case-demo-release-win-amd64.exe main.go
+```
+
+- Type of applications
+
+1. Binary/executable --> main package and main func , it is a binary
+2. Library/package   --> no main but other packages , it is library
+ 
