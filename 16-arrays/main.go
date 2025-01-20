@@ -46,4 +46,19 @@ func main() {
 		}
 	}
 	println()
+
+	// str1 := "Hello World"
+	// var any1 any = 123.23
 }
+
+/*
+String Header
+Ptr -> 8 bytes
+Len -> 8 bytes
+*/
+
+/*
+any header
+DataPtr --> Data 8 bytes
+TypePtr --> Type information 8 bytes
+*/
