@@ -19,7 +19,7 @@ func main() {
 	slice3 := []int{10, 12, 13, 14, 15}
 	arr1 := [5]int{10, 12, 13, 14, 15}
 	arr2 := [...]int{10, 12, 13, 14, 15}
-
+	fmt.Println(arr1, arr2)
 	fmt.Printf("Address of the slice1 header:%p Len:%d Cap:%d, Ptr:%p,Actual data:%v", &slice1, len(slice1), cap(slice1), &slice1[0], slice1)
 	/*
 		slice1
