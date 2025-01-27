@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
 
@@ -48,6 +50,21 @@ func main() {
 	clear(slice8) // clears all the elemens to zero values
 	fmt.Println("slcie8", slice8)
 
+	// slice9 := make([]int, 0)
+	// fmt.Printf("slice9: %+v, Is nil: %t\n", slice9, slice9 == nil)
+
 }
 
 // create a function to delete elements from the slice
+
+func DeleteElem(slice []int) error {
+	if slice == nil {
+		//return errors.New("nil slice")
+		return fmt.Errorf("nil slice")
+	}
+	return nil
+}
+
+func Calc(a, b int) (int, int) {
+	return a + b, a - b
+}
