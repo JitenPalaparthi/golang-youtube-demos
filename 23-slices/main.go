@@ -8,7 +8,7 @@ func main() {
 	// println()
 	PrintSliceHeader(slice1, "slice1")
 
-	slice2 := slice1[:] //slice1
+	slice2 := slice1[:] //slice1 , header copy
 	PrintSliceHeader(slice2, "slice2")
 
 	slice3 := slice1[:5] // but not 5 0-4
