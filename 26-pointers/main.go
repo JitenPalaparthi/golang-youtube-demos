@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
 
@@ -33,9 +35,8 @@ func main() {
 	***ptr4 = 2222
 	fmt.Println("num1:", num1)
 
-	var ptr5 *int
-
-	*ptr5 = 1000
+	// var ptr5 *int
+	// *ptr5 = 1000
 
 }
 
