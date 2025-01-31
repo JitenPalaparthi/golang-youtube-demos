@@ -1,6 +1,7 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	"unsafe"
 )
@@ -96,4 +97,31 @@ func main() {
 	fmt.Println("str3 len:", strheader3[1])
 	println()
 
+	sum, err := SumOfElements(&slice1[0], 5)
+	if err != nil {
+		fmt.Println(err.Error())
+	} else {
+		fmt.Println(sum)
+	}
+
+}
+
+func SumOfElements(ptr *int, len uint) (int, error) {
+	if ptr == nil {
+		return 0, errors.New("nil pointer")
+	}
+
+	if len == 0 {
+		return 0, errors.New("cannot do any sum on zero length")
+	}
+
+	sum := 0
+	// logic goes here
+	uintptr1 := uintptr(unsafe.Pointer(ptr))
+	for i := 0; i < int(len); i++ {
+		v := *(*int)(unsafe.Pointer(uintptr1))
+		sum += v
+		uintptr1 += 8
+	}
+	return sum, nil
 }
