@@ -12,6 +12,7 @@ func main() {
 
 	println()
 	e2.Display()
+	//e2.Address.City
 }
 
 type Employee struct {
