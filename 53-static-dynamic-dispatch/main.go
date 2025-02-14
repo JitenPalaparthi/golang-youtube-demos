@@ -4,38 +4,36 @@ import "fmt"
 
 func main() {
 
-	//var num int = 100
-	var ishape IShape = NewRect(12.4, 34.34)
-	ishape = NewSquare(100)
+	r1 := NewRect(12.3, 34.3)
+	a1 := r1.Area()
+	p1 := r1.Perimeter()
 
-	if ishape == nil {
-		fmt.Println("yes nil")
-	}
+	fmt.Println("Area of rect r1:", a1)
+	fmt.Println("Perimter of rect r1:", p1)
 
-	shapes := make([]IShape, 0)
-	// shapes := make([]any, 0)
+	s1 := NewSquare(12.3)
+	a2 := s1.Area()
+	p2 := s1.Perimeter()
+	fmt.Println("Area of square s1:", a2)
+	fmt.Println("Perimter of square r1:", p2)
 
-	shapes = append(shapes, &Rect{L: 10.5, B: 12.5}, NewRect(10.1, 12.4), NewRect(12.5, 13.5), NewSquare(100.23), NewRect(45.6, 76.5), NewSquare(10.5), NewCuboid(12.4, 5.6, 7.8))
+	var ishape IShape
+	ishape = r1
 
-	for _, v := range shapes {
-		Shape(v)
-		//Shape(v.(IShape))
+	fmt.Println("Area of", ishape.Display(), ":", ishape.Area())
+	fmt.Println("Perimeter of", ishape.Display(), ":", ishape.Perimeter())
+	println()
 
-		//c, ok := (v.(IShape)).(*Cuboid)
-
-		c, ok := v.(*Cuboid)
-		if ok {
-			fmt.Println("Calling a special method on a concrete type Cuboid")
-			c.What()
-		}
-
-	}
+	ishape = s1
+	fmt.Println("Area of", ishape.Display(), ":", ishape.Area())
+	fmt.Println("Perimeter of", ishape.Display(), ":", ishape.Perimeter())
+	println()
 
 }
 
 func Shape(ishape IShape) {
 	fmt.Println("Area of", ishape.Display(), ":", ishape.Area())
-	fmt.Println("Perimter of", ishape.Display(), ":", ishape.Perimeter())
+	fmt.Println("Perimeter of", ishape.Display(), ":", ishape.Perimeter())
 	println()
 }
 
