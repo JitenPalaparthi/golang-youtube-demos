@@ -57,6 +57,8 @@ func main() {
 			fmt.Println("Key-->", key)
 			fmt.Println("Type of Value:", reflect.TypeOf(val))
 			fn := ret(a, b)
+			// fn1 := val.(func(int, int) func() int)(a, b)
+			// r1 := fn1()
 			r := fn()
 			fmt.Println("result:", r)
 			println()
