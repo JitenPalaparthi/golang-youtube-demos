@@ -1,0 +1,8 @@
+# github.com/JitenPalaparthi/shapes1 v0.0.0-20250225031134-cae8f5fa5b81 => ../shapes1
+## explicit; go 1.24
+github.com/JitenPalaparthi/shapes1/shape
+github.com/JitenPalaparthi/shapes1/shape/rect
+github.com/JitenPalaparthi/shapes1/shape/square
+# github.com/google/uuid v1.6.0
+## explicit
+github.com/google/uuid
