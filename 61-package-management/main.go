@@ -35,6 +35,7 @@ func main() {
 			println(n, " is even number. Time is ", Now().Unix())
 		}
 	}
+
 }
 
 // 1. Binary

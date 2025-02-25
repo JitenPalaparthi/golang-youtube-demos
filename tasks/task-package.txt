@@ -1,0 +1,43 @@
+Task: Create a Go Package for Employee Management
+
+Objective
+
+Create a Go package named employee that manages employee details with restricted and unrestricted fields using struct visibility rules.
+
+Requirements
+	1.	Package Name: employee
+	2.	Struct: Employee
+	•	Unrestricted Field (Public):
+	•	Name (string) → Employee’s name.
+	•	Restricted Fields (Private):
+	•	salary (float64) → Employee’s salary (cannot be accessed directly).
+	•	id (int) → Employee ID (cannot be accessed directly).
+	3.	Functions to Implement:
+	•	NewEmployee(name string, id int, salary float64) *Employee
+	•	Constructor to create a new Employee.
+	•	Validate id (must be positive) and salary (must be non-negative).
+	•	GetID() int
+	•	Getter for id.
+	•	GetSalary() float64
+	•	Getter for salary.
+	•	SetSalary(newSalary float64) error
+	•	Setter for salary with validation (salary cannot be negative).
+	4.	Create a main.go file to test the package
+	•	Instantiate an Employee.
+	•	Print Name using direct access.
+	•	Print ID and Salary using getters.
+	•	Update Salary using the setter.
+
+Expected Output in main.go
+	•	Print Employee name directly.
+	•	Access Employee ID and Salary using getters.
+	•	Update the Salary using the setter and validate the changes.
+
+Submission Criteria
+
+✅ Implement the employee package with proper struct and methods.
+✅ Validate input data inside the NewEmployee function.
+✅ Use getter and setter functions for restricted fields.
+✅ Write a main.go file to test the package.
+
+This task will help in understanding package creation, struct field visibility, encapsulation, and validation in Go. 🚀
