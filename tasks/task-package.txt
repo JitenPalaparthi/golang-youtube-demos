@@ -39,5 +39,3 @@ Submission Criteria
 ✅ Validate input data inside the NewEmployee function.
 ✅ Use getter and setter functions for restricted fields.
 ✅ Write a main.go file to test the package.
-
-This task will help in understanding package creation, struct field visibility, encapsulation, and validation in Go. 🚀
