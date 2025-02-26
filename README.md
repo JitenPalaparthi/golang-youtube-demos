@@ -80,3 +80,26 @@ GOOS=windows GOARCH=amd64 go build -ldflags="-w -s"  -o build/switch-case-demo-r
 1. Binary/executable --> main package and main func , it is a binary
 2. Library/package   --> no main but other packages , it is library
  
+### To get a package 
+
+```
+go get github.com/JitenPalaparthi/shapes1
+```
+
+- tidy
+
+```
+go mod tidy
+```
+
+- download
+
+```
+go mod download
+```
+
+- vendor 
+
+```
+go mod vendor
+```

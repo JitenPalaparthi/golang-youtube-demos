@@ -5,6 +5,7 @@ Objective
 Create a Go package named employee that manages employee details with restricted and unrestricted fields using struct visibility rules.
 
 Requirements
+	0.  Mod name as as your github.com/<username>/repo
 	1.	Package Name: employee
 	2.	Struct: Employee
 	•	Unrestricted Field (Public):
