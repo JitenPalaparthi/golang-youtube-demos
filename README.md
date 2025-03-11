@@ -105,3 +105,13 @@ go mod vendor
 ```
 
 Do not communicate by sharing memory; instead, share memory by communicating.
+
+### Keywords in Golang (25)
+
+```
+break       default       func     interface   select
+case        defer         go       map         struct
+chan        else         goto      package     switch
+const       fallthrough   if       range       type
+continue    for          import    return      var
+```
