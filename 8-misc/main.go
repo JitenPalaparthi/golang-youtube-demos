@@ -4,6 +4,12 @@ import (
 	"errors"
 	"fmt"
 	"strconv"
+	"sync"
+)
+
+var (
+	WG       *sync.WaitGroup
+	MyGlobal int
 )
 
 func main() {
@@ -54,6 +60,7 @@ func main() {
 	fmt.Printf("Type of str2:%T str2:%s\n", str2, str2)
 	str3 := strconv.Itoa(age)
 	fmt.Printf("Type of str3:%T str3:%s\n", str3, str3)
+	isNumber(100)
 }
 
 // type cast
