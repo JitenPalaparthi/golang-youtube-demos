@@ -32,7 +32,7 @@ func main() {
 	flag.Parse()
 
 	e := gin.Default()
-
+	e.Use(LogUrl)
 	e.GET("/", func(ctx *gin.Context) {
 		// String
 		// JSON
@@ -52,17 +52,51 @@ func main() {
 
 	userDb := db.NewUserDB(dbConn)
 	uHandler := handlers.NewUserHandler(userDb)
-	e.POST("/users", uHandler.Create)
-	e.PUT("/users", uHandler.Update)
-	e.GET("/users/:id", uHandler.GetByID)
-	e.DELETE("/users/:id", uHandler.DeleteByID)
-	e.GET("/users/all/:limit/:offset", uHandler.GetAllBy)
-	//e.GET("/users/{limit}/{offset}", uHandler.GetAllBy) {} to be given as path param in Gorilla framework but in Gin and Echo just give :id etc..
 
-	e.GET("/users", uHandler.GetAll)
+	userGroup := e.Group("/users")
+
+	userGroup.Use(LogUrl, IsAutharised, Authenticate)
+	userGroup.POST("/", uHandler.Create, PostProcess)
+	userGroup.PUT("/", uHandler.Update)
+	userGroup.GET("/:id", uHandler.GetByID)
+	userGroup.DELETE("/:id", uHandler.DeleteByID)
+	userGroup.GET("/all/:limit/:offset", uHandler.GetAllBy)
+	//e.GET("/users/{limit}/{offset}", uHandler.GetAllBy) {} to be given as path param in Gorilla framework but in Gin and Echo just give :id etc..
+	userGroup.GET("/", uHandler.GetAll)
 
 	if err := e.Run(":" + PORT); err != nil { // run the service on this port
 		log.Fatalln(err.Error())
 	} // http.ListenAndServe
+
+}
+
+func IsAutharised(ctx *gin.Context) {
+	role := ctx.Request.Header.Get("role")
+	if role == "admin" {
+		ctx.Next() // this moves to the next
+	} else {
+		ctx.String(http.StatusUnauthorized, "invalid role")
+		ctx.Abort()
+	}
+}
+
+func Authenticate(ctx *gin.Context) {
+	token := ctx.Request.Header.Get("token")
+	if token == "123456" {
+		ctx.Next() // this moves to the next
+	} else {
+		ctx.String(http.StatusUnauthorized, "invalid token or token is not provided")
+		ctx.Abort()
+	}
+}
+
+func LogUrl(ctx *gin.Context) {
+	log.Println((ctx.Request.URL))
+	log.Println("clientIP:", ctx.ClientIP())
+	log.Println("remoteP:", ctx.RemoteIP())
+	ctx.Next()
+}
+
+func PostProcess(ctx *gin.Context) {
 
 }

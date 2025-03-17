@@ -1,0 +1,6 @@
+mode: set
+demo/models/user.go:15.33,16.18 1 1
+demo/models/user.go:16.18,18.3 1 1
+demo/models/user.go:19.2,19.19 1 1
+demo/models/user.go:19.19,21.3 1 1
+demo/models/user.go:22.2,22.12 1 1
